@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
+/*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 17:02:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/18 15:23:56 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/18 19:37:00 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/18 19:51:55 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+size_t	strlcpy(char *dest; const char *src, size_t size)
 {
 	int	i;
-	int	*a;
-	
-	a = (int *)s;
+
 	i = 0;
-	while (i < n)
+	if (!(size == 0))
 	{
-		a[i] = c;
-		i++;
+		size = size -1;
+		while (src[i] != '\0' && i < size)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	return (s);
+	return (i);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	int	a[10];
-
-	ft_memset(a, 8, 10);
-	printf("%d", a[5]);
-}*/

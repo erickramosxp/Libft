@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
+/*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 17:02:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/18 15:23:56 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/18 16:05:41 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/18 18:52:55 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
-	int	*a;
+	char	*dest2;
+	char	*src2;
+	size_t	i;
 	
-	a = (int *)s;
+	dest2 = (char *)dest;
+	src2 = (char *)src;
 	i = 0;
 	while (i < n)
 	{
-		a[i] = c;
+		dest2[i] = src2[i];
 		i++;
 	}
-	return (s);
+	return (dest);
 }
-/*
+
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	int	a[10];
-
-	ft_memset(a, 8, 10);
-	printf("%d", a[5]);
-}*/
+	char	a[8] = "abcdefgh";
+	char	b[10];
+	
+	/*ft_memcpy(b, a, 5);*/
+	memcpy(b, a, 5);
+	
+	printf("%s\n", b);
+}
