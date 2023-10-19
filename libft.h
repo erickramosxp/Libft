@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:59:38 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/17 17:00:22 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 17:57:04 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
+char    *ft_strchr(const char *str, int ch);
 
 #endif

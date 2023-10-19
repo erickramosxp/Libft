@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:19:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 16:13:30 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/19 18:53:33 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/19 19:14:10 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*dest2;
-	char	*src2;
+	char	*p;
 	
-	dest2 = (char *)dest;
-	src2 = (char *)src;
-	if (dest2 > src2)
+	p = (char *)s;
+	i = 0;
+	while (p[i] != '\0' && i < n)
 	{
-		i = n - 1;
-		while (i > 0)
-		{
-			dest2[i] = src2[i];
-			i--;
-		}
+		if (p[i] == c)
+			return ((char *)(p + i));
+		i++;
 	}
-	else
-	{
-		i = 0;
-		while (i < n)
-                {
-                        dest2[i] = src2[i];
-                        i++;
-                }
-	}
-	return (dest);
+	return (NULL);
 }
-/*
-int	main(void)
-{
-
-}*/

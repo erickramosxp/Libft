@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:24:36 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 15:53:57 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/19 17:44:33 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/19 18:28:05 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	int	*t;
 
-	t = (int *)s;
 	i = 0;
-	while (i < n/3.999)
-	{
-		t[i] = 0;
+	while (s[i] != '\0')
 		i++;
+	while (i != -1)
+	{
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
+	return (NULL);
 }
 /*
 #include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    int tam = 36;
-    int a[tam];
-    int i;
 
-    i = 0;
-    while (i < tam)
-    {
-        a[i] = i+1;
-        printf("%d ", a[i]);
-        i++;
-    }
-    ft_bzero(a, tam);
-    i = 0;
-    printf("\n");
-    while (i < tam)
-    {
-        printf("%d ", a[i]);
-        i++;
-    }
+int	main(void)
+{
+	const char *str = "trytoprogram.com";
+	//char ch[1] = "m";
+
+	printf("String = \"%s\"\n\n", str);
+	if(strrchr(str, 'm') != NULL ) //checking for null pointer
+	{
+		printf("\n\'m\' was found in \"%s\".\n", str);
+		printf("%s", ft_strrchr(str, 'm'));
+	}
+	else
+		printf("\n\'m\' was not found in \"%s\".\n", str);
 }*/

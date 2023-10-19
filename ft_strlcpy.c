@@ -6,15 +6,15 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:00 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/18 19:51:55 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 16:12:19 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dest; const char *src, size_t size)
+size_t	strlcpy(char *dest, const char *src, size_t size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!(size == 0))

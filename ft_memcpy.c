@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:05:41 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/18 18:52:55 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 15:54:54 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -37,8 +37,8 @@ int	main(void)
 	char	a[8] = "abcdefgh";
 	char	b[10];
 	
-	/*ft_memcpy(b, a, 5);*/
+	ft_memcpy(b, a, 5);
 	memcpy(b, a, 5);
 	
 	printf("%s\n", b);
-}
+}*/
