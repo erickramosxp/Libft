@@ -6,18 +6,18 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:54:00 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 20:27:25 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 22:07:05 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1,const	void *s2, size_t n)
+int	ft_memcmp(const void *s1, const	void *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*arg1;
 	unsigned char	*arg2;
-	
+
 	arg1 = (unsigned char *)s1; 
 	arg2 = (unsigned char *)s2;
 	if (n == 0)

@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:02:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 16:07:28 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 21:58:54 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	int	*a;
-	
+	int		*a;
+
 	a = (int *)s;
 	i = 0;
 	while (i < n)

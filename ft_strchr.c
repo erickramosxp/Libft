@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:57:24 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 18:25:28 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 22:03:13 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strchr(const char *str, int ch)
 			return ((char *)&str[i]);
 		i++;
 	}
-	return NULL;
+	return (NULL);
 }
