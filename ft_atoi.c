@@ -1,53 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:24:36 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/21 12:41:20 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/20 16:23:55 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/21 13:36:25 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr)
 {
+	int	resp;
+	int	signal;
 	int	i;
-	int	*t;
 
-	t = (int *)s;
 	i = 0;
-	while (i < n / 3.999)
+	resp = 0;
+	signal = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	while (nptr[i] == '+' || nptr[i] == '-')
 	{
-		t[i] = 0;
+		if (nptr[i] == '-')
+			signal = signal *(-1);
 		i++;
 	}
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		resp = resp * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (resp * signal);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    int tam = 36;
-    int a[tam];
-    int i;
 
-    i = 0;
-    while (i < tam)
-    {
-        a[i] = i+1;
-        printf("%d ", a[i]);
-        i++;
-    }
-    ft_bzero(a, tam);
-    i = 0;
-    printf("\n");
-    while (i < tam)
-    {
-        printf("%d ", a[i]);
-        i++;
-    }
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*a = "\n\n\n  -46\b9 \n5d6";
+
+	printf("%d", ft_atoi(a));
+	return (0);
 }
-*/

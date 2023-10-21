@@ -1,53 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 15:24:36 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/21 12:41:20 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/20 14:10:42 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/20 17:35:00 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	*t;
+	size_t	i;
+	size_t	j;
 
-	t = (int *)s;
 	i = 0;
-	while (i < n / 3.999)
+	while (big[i] != '\0' && i < len)
 	{
-		t[i] = 0;
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (big[i] == little[j])
+			{
+				i++;
+				j++;
+				if (little[j] == '\0')
+					return ((char *)&big[i - j]);
+			}
+		}
 		i++;
 	}
+	return (NULL);
 }
 /*
 #include <stdio.h>
-#include <string.h>
-int main(void)
-{
-    int tam = 36;
-    int a[tam];
-    int i;
 
-    i = 0;
-    while (i < tam)
-    {
-        a[i] = i+1;
-        printf("%d ", a[i]);
-        i++;
-    }
-    ft_bzero(a, tam);
-    i = 0;
-    printf("\n");
-    while (i < tam)
-    {
-        printf("%d ", a[i]);
-        i++;
-    }
-}
-*/
+int	main(void)
+{
+	const char *large = "Domingo Barra";
+	const char *small = "Barra";
+	
+	printf("%s", ft_strnstr(large, small, 13));
+	return 0;
+}*/

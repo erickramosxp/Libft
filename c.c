@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   c.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
+/*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 16:03:25 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 22:48:44 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/20 15:50:36 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/20 15:56:53 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalnum(int c)
-{
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
-}
-/*
 #include <stdio.h>
+#include <bsd/string.h>
 
-int	main(void)
+int main()
 {
-	printf("%d", ft_isalnum(4));
+    const char *large = "Domingo Barra Adoleta";
+    const char *small = "Barra";
+    char *ptr;
+    
+    printf("%s", strnstr(large, small, 13));
+    return 0;
 }
-*/

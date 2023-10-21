@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:59:38 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 22:22:24 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/21 13:15:44 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 
+int		ft_atoi(const char *nptr);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 void	ft_bzero(void *s, size_t n);

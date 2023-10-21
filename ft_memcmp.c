@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:54:00 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 22:07:05 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/20 14:07:54 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,19 @@ int	ft_memcmp(const void *s1, const	void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	*c = "Hello world";
+	char	*a = "Hello world";
+	int	result;
+
+	result = ft_memcmp(c, a, 5);
+	if (result == 1)
+		printf("A primeira é maior que a segunda.\n");
+	else if (result == -1)
+		printf("A segunda é maior que a primeira.\n");
+	else
+		printf("As duas são iguais.\n");
+}*/
