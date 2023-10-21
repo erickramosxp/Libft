@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:03:25 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/17 16:13:48 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/19 22:48:44 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
-/*
+
 #include <stdio.h>
 
 int	main(void)
 {
 	printf("%d", ft_isalnum(4));
-}*/
+}
