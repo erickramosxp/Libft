@@ -6,13 +6,13 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:37:00 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 16:12:19 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/21 15:30:43 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 
@@ -29,3 +29,12 @@ size_t	strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (i);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	*a = "Fluminense";
+	char	*b = " Campeão";
+
+	printf("%ld", ft_strlcpy(a, b, 8));
+}*/

@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pain.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 14:08:02 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/20 14:08:30 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/21 15:37:39 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/21 16:01:50 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-int     main(void)
-{
-        char    *c = "Hello world";
-        char    *a = "Hello world";
-        int     result;
 
-        result = ft_memcmp(c, a, 5);
-        if (result == 1)
-                printf("A primeira é maior que a segunda.\n");
-        else if (result == -1)
-                printf("A segunda é maior que a primeira.\n");
-        else
-                printf("As duas são iguais.\n");
+char	*ft_strcpy(char *dest, const char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
+char	*ft_strdup(const char *s)
+{
+	char	*copy;
+
+	copy = (char *) malloc(sizeof(s));
+	ft_strcpy(copy, s);
+	return (copy);
+}
