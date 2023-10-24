@@ -6,7 +6,7 @@
 #    By: erramos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 22:36:50 by erramos           #+#    #+#              #
-#    Updated: 2023/10/21 19:18:32 by erramos          ###   ########.fr        #
+#    Updated: 2023/10/24 19:51:19 by erramos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,10 @@ OBJECTS = ft_strlen.o ft_tolower.o ft_isdigit.o ft_isascii.o ft_isalpha.o \
 		  ft_strchr.o ft_strrchr.o ft_memchr.o ft_memset.o \
 		  ft_memcpy.o ft_memmove.o ft_memcmp.o ft_atoi.o ft_calloc.o \
 		  ft_strnstr.o ft_strdup.o ft_substr.o ft_strjoin.o
+
+CFLAGS = -Wall -Wextra -Werror
+
+CC = gcc
 
 all: $(NAME)
 
@@ -47,3 +51,7 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
+	gcc -nostartfiles -shared -o libft.so $(OBJECTS)

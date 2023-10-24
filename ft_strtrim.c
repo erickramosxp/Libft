@@ -6,42 +6,58 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:49:03 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/21 20:35:20 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/24 20:51:32 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strtrim(char const *s1, char const *set)
+#include "libft.h"
+
+int	check(const char a, const char *b)
 {
-	char	*new;
-	int	new_size;
-	int	num_set;
 	int	i;
 
 	i = 0;
-	num_set = 0;
-	while (s1[i] != '\0')
+	while (b[i] != '\0')
 	{
-		if (s1[i] == set)
-			num_set += 1;
-	}
-	new = (char *)malloc((ft_strlen((char *)s1) - num_set) * sizeof(char));
-	if (new == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		if (s1[i] != set)
-		{
-			new[j] = s1[i];
-			j++;
-		}
+		if (b[i] == a)
+			return (1);
 		i++;
+	}
+	return (0);
+}
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*new;
+	int	k;
+	int	j;
+	int	i;
+
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	k = 0;
+	while (s1[i] != '\0' && check(s1[i], set))
+	{
+		i++;
+	}
+	while (j >= 0 && check(s1[j], set))
+	{
+		j--;
+	}
+	new = (char *)malloc((j - i + 1) * sizeof(char));
+	while (i <= j)
+	{
+		new[k] = s1[i];
+		i++;
+		k++;
 	}
 	return (new);
 }
-
+#include <stdio.h>
 int	main(void)
 {
-	printf("%s");
+	const char	*a = "orangutango";
+	const char	*b = "onarg";
+
+	printf("%s", ft_strtrim(a, b));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:19:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 21:58:12 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/22 21:50:23 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,26 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			dest2[i] = src2[i];
 			i--;
 		}
+		dest2[i] = src2[i];
 	}
 	else
 	{
-		i = 0;
-		while (i < n)
+		while (n--)
 		{
-			dest2[i] = src2[i];
-			i++;
+			*dest2++ = *src2++;
 		}
 	}
 	return (dest);
 }
 /*
+#include <stdio.h>
 int	main(void)
 {
+	char	a[] = "Fluminense";
+	char	b[] = "Campeão";
 
+	ft_memmove(a, b, 4);
+
+	printf("%s", a);
+	return (0);
 }*/
