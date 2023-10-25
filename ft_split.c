@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/25 16:01:29 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/25 18:17:37 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,51 @@ int	position(char const *s, char c, int *pos)
 	return (0);
 }
 
+char	**allocate_space(const char *s, char c, char **new)
+{
+	int	pos;
+	int	aux;
+	int	i;
+	int	len_s;
+	
+	i = 0;
+	aux = 0;
+	pos = 0;
+	len_s = ft_strlen(s);
+	while (pos < len_s)
+        {
+                position(s, c, &pos);
+                if (pos < aux)
+                {
+                        new[i] = (char *)malloc(pos * sizeof(char));
+                        if (!new)
+                                return (NULL);
+                }
+                else
+                {
+                        new[i] = (char *)malloc((pos - aux) * sizeof(char));
+                        if (!new)
+                                return (NULL);
+                }
+                aux = pos;
+                pos++;
+                i++;
+        }
+	return (new);
+}
+
 #include <stdio.h>
 
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
 	int	i;
-	int	pos;
 	int	sep;
-	int	aux;
 	int	j;
 	int	k;
 	
 	sep = 0;	
 	i = 0;
-	pos = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
@@ -47,27 +77,7 @@ char	**ft_split(char const *s, char c)
 	new = (char **)malloc((sep + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
-	aux = 0;
-	i = 0;
-	while (pos < ft_strlen(s))
-	{
-		position(s, c, &pos);
-		if (pos < aux)
-		{
-			new[i] = (char *)malloc(pos * sizeof(char));
-			if (!new)
-				return (NULL);
-		}
-		else
-		{
-			new[i] = (char *)malloc((pos - aux) * sizeof(char));
-			if (!new)
-				return (NULL);
-		}
-		aux = pos;
-		pos++;
-		i++;
-	}
+	allocate_space(s, c, new);
 	i = 0;
 	k = 0;
 	j = 0;
@@ -85,7 +95,7 @@ char	**ft_split(char const *s, char c)
 	}
 	return (new);
 }
-
+/*
 int	main(void)
 {
 	const char	*a = "bom,outra,vez";
@@ -95,8 +105,8 @@ int	main(void)
 	b = ft_split(a, ',');
 	i = 0;
 	printf("Primeira : %s\n", b[0]);
-	printf("Segunda :%s \n", b[1]);
-	printf("Terceira :%s \n", b[2]);
-	printf("Terceira :%s \n", b[3]);
+	printf("Segunda : %s \n", b[1]);
+	printf("Terceira : %s \n", b[2]);
+	printf("Nulo : %s \n", b[3]);
 	return (0);
-}
+}*/
