@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:49:03 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/24 20:51:32 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/24 21:22:40 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int	check(const char a, const char *b)
 	}
 	return (0);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;
-	int	k;
-	int	j;
-	int	i;
+	int		k;
+	int		j;
+	int		i;
 
 	i = 0;
 	j = ft_strlen(s1) - 1;
@@ -52,6 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (new);
 }
+/*
 #include <stdio.h>
 int	main(void)
 {
@@ -60,4 +62,4 @@ int	main(void)
 
 	printf("%s", ft_strtrim(a, b));
 	return (0);
-}
+}*/
