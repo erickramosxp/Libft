@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:54:00 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/20 14:07:54 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/26 14:50:33 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_memcmp(const void *s1, const	void *s2, size_t n)
 	unsigned char	*arg1;
 	unsigned char	*arg2;
 
-	arg1 = (unsigned char *)s1; 
+	arg1 = (unsigned char *)s1;
 	arg2 = (unsigned char *)s2;
 	if (n == 0)
 		return (0);

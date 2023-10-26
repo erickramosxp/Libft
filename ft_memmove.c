@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:19:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/22 21:50:23 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/26 17:16:25 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	dest2 = (char *)dest;
 	src2 = (char *)src;
+	if (!dest2 && !src2)
+		return (NULL);
 	if (dest2 > src2)
 	{
 		i = n - 1;

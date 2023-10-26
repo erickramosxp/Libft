@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:05:41 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/19 21:56:06 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/26 17:15:02 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	dest2 = (char *)dest;
 	src2 = (char *)src;
+	if (!dest2 && !src2)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:59:35 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/24 21:43:50 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/26 17:31:40 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*output;
 
-	if (nmemb <= 0 || size <= 0)
-		return (NULL);
 	output = malloc(size * nmemb);
-	if (output == NULL)
+	if (!output)
 		return (NULL);
 	ft_bzero(output, size);
 	return (output);
