@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:47:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 07:57:01 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/27 20:06:41 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ char	*ft_itoa(int n)
 		digit--;
 	}
 	if (signal)
-		new[digit] = '-';
-	else
-		new[digit] = n + '0';
+		new[0] = '-';
 	return (new);
 }
 /*

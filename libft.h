@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:59:38 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 18:03:01 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/27 18:42:48 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 void		ft_putchar_fd(char c, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putstr_fd(char *s, int fd);
 
 #endif
