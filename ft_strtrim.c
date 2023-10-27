@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:49:03 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 07:25:59 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/27 07:53:57 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (j >= 0 && check(s1[j], set))
 		j--;
 	if (i > j)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	new = (char *)malloc(((j - i + 1) * sizeof(char)) + 1);
 	if (!(new))
 		return (NULL);
