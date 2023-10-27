@@ -1,52 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:19:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 13:58:03 by erramos          ###   ########.fr       */
+/*   Created: 2023/10/27 13:58:24 by erramos           #+#    #+#             */
+/*   Updated: 2023/10/27 15:11:22 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*dest2;
-	char	*src2;
+	int	i;
+	char	*s1;
+	int	size;
 
-	dest2 = (char *)dest;
-	src2 = (char *)src;
-	if (!dest2 && !src2)
+	size = ft_strlen(s);
+	i = 0;
+	s1 = (char *)malloc((size + 1) * sizeof(char));
+	if (!s1)
 		return (NULL);
-	if (dest2 > src2)
+	while (s[i] != '\0')
 	{
-		i = n - 1;
-		while (i > 0)
-		{
-			dest2[i] = src2[i];
-			i--;
-		}
-		dest2[i] = src2[i];
+		s1[i] = f(i, s[i]);
+		i++;
 	}
-	else
-	{
-
-	}
-	return (dest);
+	s1[i] = '\0';
+	return (s1);
 }
 /*
+char	toupper_two(unsigned int i, char s)
+{
+	if (s >= 97 && s <= 122)
+		s = s - 32;
+	return (s);
+}
+
 #include <stdio.h>
+
 int	main(void)
 {
-	char	a[] = "Fluminense";
-	char	b[] = "Campeão";
+	const char	*a = "ortobom";
+	char	*b;
 
-	ft_memmove(a, b, 4);
-
-	printf("%s", a);
-	return (0);
+	b = ft_strmapi(a, toupper_two);
+	printf("%s", b);
 }*/
