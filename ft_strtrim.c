@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:49:03 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/26 19:09:54 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/27 07:25:59 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int	main(void)
 {
-	const char	*a = "          ";
-	const char	*b = "onarg";
+	const char      *a = ",,,,,bom,,,,,,,,outra,,,,,,,,vez,,,,,,";
+	const char	*b = ",";
 
 	printf("%s", ft_strtrim(a, b));
 	return (0);
