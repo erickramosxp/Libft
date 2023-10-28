@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:47:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 20:06:41 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/28 13:36:16 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	check_digits(int value, int *signal)
 		digit++;
 		*signal = 1;
 	}
+	else 
+		*signal = 0;
 	while (value != 0)
 	{
 		digit++;
@@ -38,6 +40,10 @@ char	*ft_itoa(int n)
 	char	*new;
 	int		signal;
 
+	if (n == 0)
+		return (ft_strdup("0"));
+	else if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	digit = check_digits(n, &signal);
 	new = (char *)malloc((digit + 1) * sizeof(char));
 	if (!new)
@@ -46,7 +52,7 @@ char	*ft_itoa(int n)
 	digit--;
 	if (n < 0)
 		n = -n;
-	while (0 < digit)
+	while (0 <= digit)
 	{
 		new[digit] = (n % 10) + '0';
 		n = n / 10;
