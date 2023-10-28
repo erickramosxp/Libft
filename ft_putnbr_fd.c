@@ -6,23 +6,23 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:46:43 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 19:43:00 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/28 13:46:41 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <fcntl.h>
+/*#include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
-
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	*s;
 
 	s = ft_itoa(n);
-	write(fd, s, sizeof(s));
+	write(fd, s, ft_strlen(s));
 }
-
+/*
 int     main(void)
 {
         char*   file = "out.txt";
@@ -40,4 +40,4 @@ int     main(void)
         ft_putnbr_fd(a, fd);
 
         close(fd);
-}
+}*/
