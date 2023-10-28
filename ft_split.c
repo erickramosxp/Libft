@@ -6,12 +6,12 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/28 17:09:21 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/28 17:44:24 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+//#include <stdio.h>
 int	position(char const *s, char c, int *pos)
 {
 	while (s[*pos] != '\0')
@@ -71,7 +71,8 @@ char	**fill_matriz(const char *s, char c, char **new)
 		while (s[i] == c)
 			i++;
 	}
-	new[j + 1] = '\0';
+	new[j + 1] = (char *)malloc(sizeof(char));
+	new[j + 1][0] = '\0';
 	return (new);
 }
 
@@ -101,13 +102,18 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	const char	*a = ",,,,,bom,,,,,,,,outra,,,,,,,,vez,,,,,";
+	const char	*a = "      split       this for   me  !     ";
 	char	**b;
 
-	b = ft_split(a, ',');
-	printf("Primeira :%s\n", b[0]);
-	printf("Segunda :%s \n", b[1]);
-	printf("Terceira :%s \n", b[2]);
-   	printf("Nulo :%s \n", b[3]);
+	b = ft_split(a, ' ');
+	int i = 0;
+	while (b[i])
+	{
+        	printf("Palavra %d: %s\n", i, b[i]);
+        	free(b[i]); // Libere a memória de cada palavra
+        	i++;
+	}
+	free(b);
+//   	printf("Nulo :%s \n", b[5]);
 	return (0);
 }*/

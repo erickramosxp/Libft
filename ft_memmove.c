@@ -25,20 +25,17 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (dest2 > src2)
 	{
 		i = n - 1;
-		while (i > 0)
+		while (i >= 0)
 		{
 			dest2[i] = src2[i];
 			i--;
 		}
-		dest2[i] = src2[i];
 	}
 	else
-	{
-
-	}
+		ft_memcpy(dest2, src2, n);
 	return (dest);
 }
-/*
+
 #include <stdio.h>
 int	main(void)
 {
@@ -49,4 +46,4 @@ int	main(void)
 
 	printf("%s", a);
 	return (0);
-}*/
+}
