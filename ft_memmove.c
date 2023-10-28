@@ -35,7 +35,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(dest2, src2, n);
 	return (dest);
 }
-
+/*
 #include <stdio.h>
 int	main(void)
 {
@@ -46,4 +46,4 @@ int	main(void)
 
 	printf("%s", a);
 	return (0);
-}
+}*/
