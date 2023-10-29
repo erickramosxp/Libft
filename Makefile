@@ -6,7 +6,7 @@
 #    By: erramos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 22:36:50 by erramos           #+#    #+#              #
-#    Updated: 2023/10/28 17:05:43 by erramos          ###   ########.fr        #
+#    Updated: 2023/10/29 12:34:49 by erramos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,6 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
 	gcc -nostartfiles -shared -o libft.so $(OBJECTS)
