@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:22:27 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/21 17:43:36 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/29 18:18:19 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	j;
 	char			*sub;
 
-	sub = (char *)malloc(len * sizeof(char));
+	if(!s)
+		return (0);
+	sub = (char *)malloc((len + 1) * sizeof(char));
 	if (sub == NULL)
 		return (NULL);
 	i = 0;
@@ -31,6 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		j++;
 	}
+	sub[j] = '\0';
 	return (sub);
 }
 /*
