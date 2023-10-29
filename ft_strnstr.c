@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:10:42 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/20 17:35:00 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/29 16:53:31 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
