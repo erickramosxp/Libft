@@ -6,12 +6,12 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/28 17:44:24 by erramos          ###   ########.fr       */
+/*   Updated: 2023/10/31 15:16:36 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 int	position(char const *s, char c, int *pos)
 {
 	while (s[*pos] != '\0')
@@ -37,7 +37,9 @@ char	**allocate_space(const char *s, char c, char **new)
 	while (pos < len_s)
 	{
 		position(s, c, &pos);
+		printf("Posição atual %d, tamanho da palavra : %d\n", pos, (pos - aux));
 		new[i] = (char *)malloc((pos - aux + 1) * sizeof(char));
+		printf("%d\n\n", i);
 		if (!new)
 			return (NULL);
 		while (s[pos] == c)
@@ -62,20 +64,49 @@ char	**fill_matriz(const char *s, char c, char **new)
 		new[j][k] = s[i];
 		i++;
 		k++;
-		if (s[i] == c)
+		if (s[i] == c || s[i] == '\0')
 		{
 			new[j][k] = '\0';
 			j++;
 			k = 0;
 		}
-		while (s[i] == c)
+		while (s[i] == c && s[i + 1] != '\0')
 			i++;
 	}
-	new[j + 1] = (char *)malloc(sizeof(char));
-	new[j + 1][0] = '\0';
+	new[j] = (char *)malloc(sizeof(char));
+	new[j][0] = '\0';
 	return (new);
 }
 
+/*
+static void	fill_matriz(char *s, char **r, char c)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			r[j][k] = s[i];
+			k++;
+		}
+		if (s[i] == c || s[i + 1] == '\0')
+		{
+			r[j][k] = '\0';
+			k = 0;
+			j++;
+			while (s[i + 1] == c && s[i + 1] != '\0')
+				i++;
+		}
+		i++;
+	}
+}
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**new;
@@ -88,15 +119,16 @@ char	**ft_split(char const *s, char c)
 	aux = ft_strtrim(s, &c);
 	while (aux[i] != '\0')
 	{
-		if (aux[i] == c)
+		if (aux[i] == c && aux[i + 1] != c)
 			sep++;
 		i++;
 	}
-	new = (char **)malloc((sep + 2) * sizeof(char));
+	printf("linhas :%d\n\n", sep);
+	new = malloc((sep + 2) * sizeof(char));
 	if (!new)
 		return (NULL);
 	allocate_space(aux, c, new);
-	fill_matriz(aux, c, new);
+//	fill_matriz(aux, c, new);
 	return (new);
 }
 /*
