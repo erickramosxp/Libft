@@ -6,94 +6,139 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/01 14:29:22 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/01 18:51:45 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-int	position(const char *s, char c)
+static int	count(char *s, char c, int start)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	while (s[start] != '\0')
 	{
-		if (s[i] != c && s[i + 1] == c)
-				return (i + 1);
-		i++;
+		if (s[start] == c)
+			return (start);
+		start++;
 	}
-	return (i);
+	return (start);
 }
-char	**allocate_spaces(const char *s, char **mat, char c, int line)
+
+static char	**alloc(char *s, char **mat, char c, int line)
 {
+	int     contador;
+	int     ax;
 	int	i;
-	int	aux;
 
 	i = 0;
-	aux = 0;
-	while (i < line)
-	{
-		while (*s == c)
-			s++;
-		aux = position(s, c);
-		printf("%s\n", s);
-		mat[i] = (char *)malloc((aux + 1)* sizeof(char));
+	contador = 0;
+        ax = 0;
+        while (i <= line)
+        {
+                contador = count(s, c, ax);
+//		printf("\nPalavra %d tamanho %d\n", i, contador - ax);
+		mat[i] = (char *)malloc((contador - ax + 1) * sizeof(char));
 		if (!mat[i])
 			return (NULL);
-		s = s + aux;
-		ft_memcpy(mat[i], (s - aux), aux);
-		mat[i][aux] = '\0';
-
-//		printf("palavra:%s quantidade de letras %d\n",(s - aux), aux);
-//		printf("string : %s pos :%d letras: %d\n", s, i, aux);
-//		printf("string menos a anterior :%s\n", (s - aux));
-//		mat[i] = ft_substr((s - aux) , 0, aux);
-		i++;
-	}
-	i = 0;
-/*      	while (i < line)
-        {
-                printf("%s\n", mat[i]);
+                while (s[contador] == c && s[contador + 1] != '\0')
+                        contador++;
+                ax = contador;
+//		printf("\ntamanho %d\n", ax);
                 i++;
-        }*/
+        }
 	return (mat);
 }
+
+static char	**fill_matriz(char *s, char **new, char c, int line)
+{
+	int	contador;
+	int	i;
+
+	i = 0;
+	while (i <= line)
+	{
+		contador = 0;
+		contador = count(s, c, contador);
+		ft_memcpy(new[i], s, contador);
+		new[i][contador] = '\0';
+		while (s[contador] == c)
+			contador++;
+		s = s + contador;
+		i++;
+	}
+	new[i] = (char *)malloc(sizeof(char));
+	new[i][0] = '\0';
+	return (new);
+}
+
+/*
+static void	ft_fillsplit(char *s, char **r, char c)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			r[j][k] = s[i];
+			k++;
+		}
+		if (s[i] == c || s[i + 1] == '\0')
+		{
+			r[j][k] = '\0';
+			k = 0;
+			j++;
+			while (s[i + 1] == c && s[i + 1] != '\0')
+				i++;
+		}
+		i++;
+	}
+}
+*/
 char	**ft_split(char const *s, char c)
 {
-	char	**matr;
-	size_t	i;
+	int	i;
 	int	line;
-	
-	line = 0;
+	char	**new;
+	char	*aux;
+
 	i = 0;
-	while(s[i] != '\0')
+	line = 0;
+	aux = ft_strtrim(s, &c);
+//	printf("%s", aux);
+	while (aux[i] != '\0')
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (aux[i] != c && aux[i + 1] == c)
 			line++;
 		i++;
 	}
-	matr = (char **)malloc((line + 1) * sizeof(char));
-	allocate_spaces(s, matr, c, line);
-//	i = 0;
-/*	while (i < line)
-        {
-		printf("%s\n", matr[i]);
-                i++;
-        }*/
-//	printf("%d", sep);
-	return (matr);
+	new = (char **)malloc((line + 2) * sizeof(char *));
+	alloc(aux, new, c, line);
+	fill_matriz(aux, new, c, line);
+//	ft_fillsplit(aux, new, c);
+//	printf("%d", line);
+	free(aux);	
+	return (new);
 }
-
+/*
 int	main(void)
 {
-	const char	*a = " foi-se  vim   coisa   outra  bc  a   split  ola     this for   me  !   a ";
+	const char	*a = "     split  this for   me  !  a    ";
 	char	**b;
 
 	b = ft_split(a, ' ');
 	
 	int i = 0;
-       // printf("Palavra %d: %s\n", i, b[0]);
+	while (b[i][0] != '\0')
+	{
+		printf("Palavra %d: %s\n", i, b[i]);
+		i++;
+	}
+	printf("%s", b[6]);
 //   	printf("Nulo :%s \n", b[5]);
 	return (0);
-}
+}*/
