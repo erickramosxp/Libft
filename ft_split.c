@@ -6,84 +6,88 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/31 23:41:32 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/01 14:29:22 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-int	position(char const *s, char c)
+int	position(const char *s, char c)
 {
-	int	pos;
-
-	pos = 0;
-	while (s[pos] != '\0')
-	{
-		if (s[pos] != c && (s[pos + 1] == c || s[pos + 1] == '\0'))
-			return (pos + 1);
-		pos++;
-	}
-	return (pos);
-}
-
-char	**allocate_space(const char *s, char c, char **new, int sep)
-{
-	int	pos;
-	int	aux;
 	int	i;
-	char	*s2;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c && s[i + 1] == c)
+				return (i + 1);
+		i++;
+	}
+	return (i);
+}
+char	**allocate_spaces(const char *s, char **mat, char c, int line)
+{
+	int	i;
+	int	aux;
 
 	i = 0;
 	aux = 0;
-	while (i < sep)
+	while (i < line)
 	{
 		while (*s == c)
 			s++;
-		aux = position(s, c);	
-		//printf("Posição atual %d, tamanho da palavra : %d\n", pos, (pos - aux));
-		
-		new[i] = ft_substr(s, 0, aux);
-//		printf("%s\n", new[i]);
-
-	//	printf("linha %d, tamanho da palavra %d\n%s\n", i, aux, s);
+		aux = position(s, c);
+		printf("%s\n", s);
+		mat[i] = (char *)malloc((aux + 1)* sizeof(char));
+		if (!mat[i])
+			return (NULL);
 		s = s + aux;
+		ft_memcpy(mat[i], (s - aux), aux);
+		mat[i][aux] = '\0';
+
+//		printf("palavra:%s quantidade de letras %d\n",(s - aux), aux);
+//		printf("string : %s pos :%d letras: %d\n", s, i, aux);
+//		printf("string menos a anterior :%s\n", (s - aux));
+//		mat[i] = ft_substr((s - aux) , 0, aux);
 		i++;
 	}
-	printf("%s\n", new[0]);
-	printf("%s\n", new[1]);
-	printf("%s\n", new[2]);
-	printf("%s\n", new[3]);
-	new[i] = '\0';
-	return (new);
+	i = 0;
+/*      	while (i < line)
+        {
+                printf("%s\n", mat[i]);
+                i++;
+        }*/
+	return (mat);
 }
-
 char	**ft_split(char const *s, char c)
 {
-	char	**new;
-	char	*aux;
-	int		i;
-	int		sep;
-
-	sep = 0;
+	char	**matr;
+	size_t	i;
+	int	line;
+	
+	line = 0;
 	i = 0;
-	aux = (char *)s;
-	while (s[i] != '\0')
+	while(s[i] != '\0')
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			sep++;
+			line++;
 		i++;
 	}
-	//printf("linhas :%d\n\n", sep);
-	new = malloc((sep + 1) * sizeof(char));
-	if (!new)
-		return (NULL);
-	allocate_space(aux, c, new, sep);
-	return (new);
+	matr = (char **)malloc((line + 1) * sizeof(char));
+	allocate_spaces(s, matr, c, line);
+//	i = 0;
+/*	while (i < line)
+        {
+		printf("%s\n", matr[i]);
+                i++;
+        }*/
+//	printf("%d", sep);
+	return (matr);
 }
 
 int	main(void)
 {
-	const char	*a = "      split       this for   me  !   a ";
+	const char	*a = " foi-se  vim   coisa   outra  bc  a   split  ola     this for   me  !   a ";
 	char	**b;
 
 	b = ft_split(a, ' ');
