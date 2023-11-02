@@ -6,7 +6,7 @@
 #    By: erramos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 22:36:50 by erramos           #+#    #+#              #
-#    Updated: 2023/10/29 12:34:49 by erramos          ###   ########.fr        #
+#    Updated: 2023/11/02 19:04:24 by erramos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJECTS = ft_strlen.o ft_tolower.o ft_isdigit.o ft_isascii.o ft_isalpha.o \
 
 CFLAGS = -Wall -Wextra -Werror
 
-CC = gcc
+CC = cc
 
 all: $(NAME)
 
