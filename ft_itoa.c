@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:47:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/28 13:36:16 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:42:37 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	check_digits(int value, int *signal)
 		digit++;
 		*signal = 1;
 	}
-	else 
+	else
 		*signal = 0;
 	while (value != 0)
 	{

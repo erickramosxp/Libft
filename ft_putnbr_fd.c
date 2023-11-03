@@ -6,15 +6,12 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:46:43 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/28 17:07:05 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:34:00 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-*/
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
@@ -24,7 +21,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(147483648, fd);
 	}
 	else if (n < 0)
-	{	
+	{
 		ft_putchar_fd('-', fd);
 		n = n *(-1);
 		ft_putnbr_fd(n, fd);

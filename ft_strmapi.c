@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:58:24 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/27 15:11:22 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:22:38 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	int		i;
+	int		size;
 	char	*s1;
-	int	size;
 
 	size = ft_strlen(s);
 	i = 0;

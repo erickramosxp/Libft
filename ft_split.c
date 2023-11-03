@@ -6,12 +6,11 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/02 14:30:57 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:30:55 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-#include <stdio.h>
+
 int	position(char const *s, char c)
 {
 	int	pos;
@@ -37,7 +36,7 @@ char	**allocate_space(const char *s, char c, char **new, int sep)
 	{
 		while (*s == c)
 			s++;
-		aux = position(s, c);	
+		aux = position(s, c);
 		new[i] = ft_substr(s, 0, aux);
 		s = s + aux;
 		i++;

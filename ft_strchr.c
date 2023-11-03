@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:57:24 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/31 14:26:14 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/02 19:29:40 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strchr(const char *str, int ch)
 		return ((char *)&str[i]);
 	return (NULL);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -35,4 +35,4 @@ int	main(void)
 	const char	*a = "      split       this for   me  !     ";
 	
 	printf("%s", ft_strchr(a, ' '));
-}
+}*/
