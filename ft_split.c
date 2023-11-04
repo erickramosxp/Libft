@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:03:16 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/04 14:48:43 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/04 15:27:51 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static	char	**allocate_space(const char *s, char c, char **new, int sep)
 	aux = 0;
 	while (i < sep)
 	{
-		while (*s == c)
+		while (*s == c && *s != '\0')
 			s++;
 		aux = position(s, c);
 		new[i] = ft_substr(s, 0, aux);
@@ -78,6 +78,8 @@ char	**ft_split(char const *s, char c)
 
 	sep = 0;
 	i = 0;
+	if (s == 0)
+		return (0);
 	aux = (char *)s;
 	while (s[i] != '\0')
 	{
