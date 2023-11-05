@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:46:41 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/30 18:38:48 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/04 16:00:47 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len;
 	char	*news;
 
+	if (!s1 || !s2)
+		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	news = (char *)malloc((len + 1) * sizeof(char));
 	if (news == NULL)
