@@ -6,11 +6,9 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:57:24 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/02 19:29:40 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 15:23:25 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strchr(const char *str, int ch)
 {
@@ -25,14 +23,5 @@ char	*ft_strchr(const char *str, int ch)
 	}
 	if (str[i] == ch)
 		return ((char *)&str[i]);
-	return (NULL);
+	return (0);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char	*a = "      split       this for   me  !     ";
-	
-	printf("%s", ft_strchr(a, ' '));
-}*/

@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 13:59:35 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/29 17:14:07 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 15:52:11 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	output = malloc(size * nmemb);
 	if (!output)
-		return (NULL);
+		return (0);
 	ft_bzero(output, size * nmemb);
 	return (output);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*a;
-	int	i;
-
-	a = (char *)ft_calloc(10, sizeof(char));
-	i = 0;
-	while (i < 10)
-	{
-		a[i] = i + '0';
-		printf("%c", a[i]);
-		i++;
-	}
-	return (0);
-}*/

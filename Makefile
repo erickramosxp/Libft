@@ -6,7 +6,7 @@
 #    By: erramos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 22:36:50 by erramos           #+#    #+#              #
-#    Updated: 2023/11/03 15:13:40 by erramos          ###   ########.fr        #
+#    Updated: 2023/11/08 14:50:07 by erramos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,22 +39,13 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 
 $(OBJECTS): $(FILES) libft.h
-	@cc -Wextra -Werror -Wall -c $(FILES)
-	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
+	cc -Wextra -Werror -Wall -c $(FILES)
+	ar rc $(NAME) $(OBJECTS)
 	
 clean:
-	@rm -f $(OBJECTS)
-
-#bonus:
-#	@gcc -Wextra -Werror -Wall -c $(FILES)
-#	@ar rc $(NAME) $(OBJECTS)
-#	@ranlib $(NAME)
+	rm -f $(OBJECTS)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
-	gcc -nostartfiles -shared -o libft.so $(OBJECTS)

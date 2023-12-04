@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:45:05 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/03 15:15:10 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 14:34:36 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	*a = "cachorro";
-
-	printf("%ld", ft_strlen(a));
-}
-*/

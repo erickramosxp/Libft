@@ -6,12 +6,11 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:47:17 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/02 19:42:37 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 16:20:36 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	check_digits(int value, int *signal)
 {
@@ -47,7 +46,7 @@ char	*ft_itoa(int n)
 	digit = check_digits(n, &signal);
 	new = (char *)malloc((digit + 1) * sizeof(char));
 	if (!new)
-		return (NULL);
+		return (0);
 	new[digit] = '\0';
 	digit--;
 	if (n < 0)
@@ -62,12 +61,3 @@ char	*ft_itoa(int n)
 		new[0] = '-';
 	return (new);
 }
-/*
-int	main(void)
-{
-	char	*a;
-
-	a = ft_itoa(-12345);
-
-	printf("%s", a);
-}*/

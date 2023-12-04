@@ -6,14 +6,13 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:59:38 by erramos           #+#    #+#             */
-/*   Updated: 2023/10/29 12:02:30 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:29:14 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 

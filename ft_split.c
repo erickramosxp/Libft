@@ -6,24 +6,24 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:03:16 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/04 15:27:51 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 16:34:10 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>*/
-static	int	position(char const *s, char c)
-{
-	int	pos;
 
-	pos = 0;
-	while (s[pos] != '\0')
+static	int	word_len(char const *s, char c)
+{
+	int	letter;
+
+	letter = 0;
+	while (s[letter] != '\0')
 	{
-		if (s[pos] != c && (s[pos + 1] == c || s[pos + 1] == '\0'))
-			return (pos + 1);
-		pos++;
+		if (s[letter] != c && (s[letter + 1] == c || s[letter + 1] == '\0'))
+			return (letter + 1);
+		letter++;
 	}
-	return (pos);
+	return (letter);
 }
 
 static	char	free_split(char **s, int i)
@@ -35,7 +35,6 @@ static	char	free_split(char **s, int i)
 	{
 		free(s[j]);
 		j++;
-		i++;
 	}
 	free(s);
 	return (0);
@@ -52,7 +51,7 @@ static	char	**allocate_space(const char *s, char c, char **new, int sep)
 	{
 		while (*s == c && *s != '\0')
 			s++;
-		aux = position(s, c);
+		aux = word_len(s, c);
 		new[i] = ft_substr(s, 0, aux);
 		if (!new[i])
 		{
@@ -62,10 +61,7 @@ static	char	**allocate_space(const char *s, char c, char **new, int sep)
 		s = s + aux;
 		i++;
 	}
-	new[i] = (char *)malloc(sizeof(char));
-	if (!new[i])
-		return (0);
-	new[i] = NULL;
+	new[i] = 0;
 	return (new);
 }
 
@@ -89,24 +85,7 @@ char	**ft_split(char const *s, char c)
 	}
 	new = malloc((sep + 1) * sizeof(char *));
 	if (!new)
-		return (NULL);
+		return (0);
 	allocate_space(aux, c, new, sep);
 	return (new);
 }
-/*
-int	main(void)
-{
-	const char	*a = "  aaa   abaa   aaca   adaa    ";
-	char	**b;
-
-	b = ft_split(a, ' ');
-	
-//	int i = 0;
-       	printf("Palavra 0: %s\n", b[0]);
-	printf("Palavra 1: %s\n", b[1]);
-	printf("Palavra 2: %s\n", b[2]);
-	printf("Palavra 3: %s\n", b[3]);
-	printf("Palavra 4: %s\n", b[4]);
-//   	printf("Nulo :%s \n", b[5]);
-	return (0);
-}*/

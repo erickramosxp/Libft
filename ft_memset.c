@@ -6,7 +6,7 @@
 /*   By: erramos <erramos@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:02:54 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/02 19:36:30 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 12:00:20 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	int	a[10];
-
-	ft_memset(a, 8, 10);
-	printf("%d", a[5]);
-}*/

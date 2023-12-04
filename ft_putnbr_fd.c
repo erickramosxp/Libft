@@ -6,7 +6,7 @@
 /*   By: erramos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:46:43 by erramos           #+#    #+#             */
-/*   Updated: 2023/11/02 19:34:00 by erramos          ###   ########.fr       */
+/*   Updated: 2023/11/05 16:31:06 by erramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-/*
-int     main(void)
-{
-        char*   file = "out.txt";
-        int     fd;
-        char    c[] = "makefile";
-	int	a;
-	
-	a = 12345687;
-        fd = open(file, O_RDWR | O_CREAT);
-        if (fd == -1)
-        {
-                perror("open");
-                exit(EXIT_FAILURE);
-        }
-        ft_putnbr_fd(a, fd);
-
-        close(fd);
-}*/
